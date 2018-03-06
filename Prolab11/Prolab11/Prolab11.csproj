@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Device" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -65,6 +66,7 @@
       <DependentUpon>Form_Chart.cs</DependentUpon>
     </Compile>
     <Compile Include="Islemler.cs" />
+    <Compile Include="Kodlar.cs" />
     <Compile Include="Nokta_Belirleyici.cs">
       <SubType>Form</SubType>
     </Compile>
