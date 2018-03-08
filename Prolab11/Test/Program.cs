@@ -10,55 +10,61 @@ namespace Test
 {
     class Program
     {
+        static Dugum d1, d2, d3, d4, d5, d6;
+
         static void Main(string[] args)
         {
-            //TestObject t1 = new TestObject() { value = 5 };
-            //TestObject t2 = t1;
 
-            //t2 = null;
-            //Console.WriteLine(t1.value);
+            
 
-            //TestObject t1 = new TestObject() { value = 5 };
-            //TestObject t2 = new TestObject() { value = 6 };
-            //TestObject t3 = new TestObject() { value = 7 };
+            d1 = new Dugum() { isim = "A" };
+            d2 = new Dugum() { isim = "B" };
+            d3 = new Dugum() { isim = "C" };
+            d4 = new Dugum() { isim = "D" };
+            d5 = new Dugum() { isim = "E" };
+            d6 = new Dugum() { isim = "F" };
 
-            //List<TestObject> liste = new List<TestObject>();
-            //liste.Add(t1);
-            //liste.Add(t2);
-            //liste.Add(t3);
-            //for (int i = 0; i < liste.Count; i++)
-            //{
-            //    TestObject to = liste.ElementAt(i);
-
-            //    Console.WriteLine(to.value);
-
-            //    if (i == 1)
-            //        liste.Remove(to);
-            //}
+            Kenar k12, k13, k34, k25, k26, k36, k46, k45;
+            k12 = new Kenar() { ucDugum = d2, agirlik = 2 };
+            k13 = new Kenar() { ucDugum = d3, agirlik = 1 };
+            k34 = new Kenar() { ucDugum = d4, agirlik = 1 };
+            k25 = new Kenar() { ucDugum = d5, agirlik = 2 };
+            k26 = new Kenar() { ucDugum = d6, agirlik = 5 };
+            k36 = new Kenar() { ucDugum = d6, agirlik = 2 };
+            k46 = new Kenar() { ucDugum = d6, agirlik = 5 };
+            k45 = new Kenar() { ucDugum = d5, agirlik = 7 };
 
 
-            //int hipotenus = (int)Math.Sqrt(Math.Pow((120 * Math.Pow(10, -3)), 2) + Math.Pow(207, 2));
-
-            //Console.WriteLine(hipotenus);
-
-            Console.WriteLine(Math.Atan(((double)120) / 207) * 180 / Math.PI);
-
-            //Console.WriteLine( GetDistanceAsKM(40.76694, 29.91694, 37.76441, 38.27629));
+            d1.kenarlar.Add(k12); d1.kenarlar.Add(k13);
+            d2.kenarlar.Add(k25); d2.kenarlar.Add(k26);
+            d3.kenarlar.Add(k34); d3.kenarlar.Add(k36);
+            d4.kenarlar.Add(k45); d4.kenarlar.Add(k46);
+            
             Console.Read();
         }
 
-        private static int GetDistanceAsKM(double sLatitude, double sLongitude, double eLatitude, double eLongitude)
+        public static void DijikstraCoz(Dugum baslangicDugum, Dugum bitisDugum)
         {
-            var sCoord = new GeoCoordinate(sLatitude, sLongitude);
-            var eCoord = new GeoCoordinate(eLatitude, eLongitude);
 
-            return (int)(sCoord.GetDistanceTo(eCoord) / 1000);
         }
 
     }
 
-    public class TestObject
+    class Dugum
     {
-        public int value { get; set; }
+        public string isim{ get; set; }
+        public List<Kenar>kenarlar { get; set; }
+
+        public Dugum()
+        {
+            kenarlar = new List<Kenar>();
+        }
     }
+
+    class Kenar
+    {
+        public int agirlik { get; set; }
+        public Dugum ucDugum { get; set; }
+    }
+
 }
