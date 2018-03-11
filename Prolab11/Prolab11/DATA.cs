@@ -9,14 +9,13 @@ namespace Prolab11
 {
     class DATA
     {
-        public static int baslangic_sehri_plaka_kodu { get; set; }
-        public static int varis_sehri_plaka_kodu { get; set; }
+        public static Dugum baslangic_sehri_plaka_kodu { get; set; }
+        public static Dugum varis_sehri_plaka_kodu { get; set; }
         public static string verilenDosyalarinKlasoru { get; set; }
         public static int kisi_sayisi { get; set; }
 
 
         public static Dugum[] dugumler = new Dugum[81];
-
 
         public static void VerilenDosyalariYukle()
         {
@@ -24,11 +23,11 @@ namespace Prolab11
             {
                 DATA.dugumler[i] = new Dugum();
                 DATA.dugumler[i].komsular = new List<Komsu>();
+                DATA.dugumler[i].yollar = new List<Dugum>();
             }
 
-
             string plaka_ilAdi = DATA.verilenDosyalarinKlasoru + "/" + "plaka-il.txt";
-            StreamReader oku = new StreamReader(plaka_ilAdi);
+            StreamReader oku = new StreamReader(plaka_ilAdi, Encoding.GetEncoding(1254));
             string satir = oku.ReadLine();
             satir = oku.ReadLine(); // çünkü ilk satırda açıklama var
             while (satir != null)

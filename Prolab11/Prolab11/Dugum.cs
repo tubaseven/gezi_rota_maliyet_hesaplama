@@ -15,7 +15,11 @@ namespace Prolab11
         public double lng { get; set; }
         public int harita_X { get; set; }
         public int harita_Y { get; set; }
-        
+
+        public int toplamMaliyet { get; set; }
+
+        public List<Dugum> yollar { get; set; }
+
         public List<Komsu> komsular { get; set; }
     }
 

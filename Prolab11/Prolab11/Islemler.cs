@@ -12,12 +12,24 @@ namespace Prolab11
 
         public Islemler()
         {
-
+            KomsuluklariKontrolEt();
         }
 
         public void Coz()
         {
-            KomsuluklariKontrolEt();
+            // djiskstra algoritması için başlangıç değerleri sonsuz olarak atanıyor:
+            for (int i = 0; i < DATA.dugumler.Length; i++)
+            {
+                DATA.dugumler[i].toplamMaliyet = 1999999999;
+            }
+
+            // başlangıç ataması: başlangıç düğümüne değerleri atanıyor
+            DATA.baslangic_sehri_plaka_kodu.yollar.Add(DATA.baslangic_sehri_plaka_kodu);
+            DATA.baslangic_sehri_plaka_kodu.toplamMaliyet = 0;
+
+            Recursive(null, DATA.baslangic_sehri_plaka_kodu);
+
+            // çözüldü
         }
 
         public void KomsuluklariKontrolEt()
@@ -79,9 +91,49 @@ namespace Prolab11
                 }
 
             }
-            int a = 5;
+            // int a = 5; : breakpoint koyabilmek için :))
         }
 
+        public static void Recursive(Dugum parentDugum, Dugum dugum)
+        {
+            bool isChanged = false;
+            for (int i = 0; i < dugum.komsular.Count; i++)
+            {
+                Komsu kenar = dugum.komsular.ElementAt(i);
+
+                if (kenar.komsuDugum == parentDugum)
+                    continue;
+
+                if (kenar.komsuDugum.toplamMaliyet > (dugum.toplamMaliyet + kenar.mesafe))
+                {
+                    // mesafe bilgisini güncelle
+                    kenar.komsuDugum.toplamMaliyet = dugum.toplamMaliyet + kenar.mesafe;
+                    isChanged = true;
+
+                    // yolları güncelle
+                    if (parentDugum != null)
+                    {
+                        kenar.komsuDugum.yollar.Clear();
+                        kenar.komsuDugum.yollar.AddRange(parentDugum.yollar.ToList());
+                    }
+                    kenar.komsuDugum.yollar.Add(dugum);
+                    kenar.komsuDugum.yollar.Add(kenar.komsuDugum);
+                }
+            }
+
+            if (!isChanged)
+                return;
+
+            for (int i = 0; i < dugum.komsular.Count; i++)
+            {
+                Komsu kenar = dugum.komsular.ElementAt(i);
+
+                if (kenar.komsuDugum == parentDugum)
+                    continue;
+
+                Recursive(dugum, kenar.komsuDugum);
+            }
+        }
 
     }
 }

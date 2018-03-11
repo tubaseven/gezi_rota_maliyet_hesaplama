@@ -23,9 +23,9 @@ namespace Prolab11
             progressBar1.Style = ProgressBarStyle.Marquee;
             timer1.Start();
 
-            DATA.varis_sehri_plaka_kodu = comboBox_varis.SelectedIndex;
-            DATA.baslangic_sehri_plaka_kodu = comboBox_baslangic.SelectedIndex;
-            DATA.kisi_sayisi =(int)numericUpDown1.Value;
+            DATA.varis_sehri_plaka_kodu = DATA.dugumler[comboBox_varis.SelectedIndex];
+            DATA.baslangic_sehri_plaka_kodu = DATA.dugumler[comboBox_baslangic.SelectedIndex];
+            DATA.kisi_sayisi = (int)numericUpDown1.Value;
         }
 
         int sayac = 0;
@@ -47,7 +47,7 @@ namespace Prolab11
 
         private void button_gozat_Click(object sender, EventArgs e)
         {
-            if(folderBrowserDialog1.ShowDialog()==DialogResult.OK)
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
                 textBox1.Text = folderBrowserDialog1.SelectedPath;
 
@@ -56,7 +56,7 @@ namespace Prolab11
 
                 for (int i = 0; i < DATA.dugumler.Length; i++)
                 {
-                    string sehirIsmi=DATA.dugumler[i].isim;
+                    string sehirIsmi = DATA.dugumler[i].isim;
                     comboBox_baslangic.Items.Add(sehirIsmi);
                     comboBox_varis.Items.Add(sehirIsmi);
                 }
