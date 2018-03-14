@@ -167,7 +167,7 @@ namespace Prolab11
                     int komsuRakimi = dugumunKomsusu.komsuDugum.rakim; // komsunun rakımı
 
                     // dugumler arası yatay uzaklık
-                    int komsununUzakligiKM = Kodlar.GetDistanceAsKM(dugum.lat, dugum.lng, dugumunKomsusu.komsuDugum.lat, dugumunKomsusu.komsuDugum.lng);
+                    int komsununUzakligiKM = DigerKodlar.GetDistanceAsKM(dugum.lat, dugum.lng, dugumunKomsusu.komsuDugum.lat, dugumunKomsusu.komsuDugum.lng);
 
                     int yatay_kenar = komsununUzakligiKM;
                     int dusey_kenar = Math.Abs(dugumRakim - (komsuRakimi + 40));

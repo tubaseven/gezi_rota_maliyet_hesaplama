@@ -16,5 +16,8 @@ namespace Prolab11
         public static DugumYapisi[] dugumYapilari_sabit_ucret_max_kar { get; set; }
         public static DugumYapisi[] dugumYapilari_degisken_ucret_50_kar { get; set; }
 
+        public static double sabitUcretToplamCalismaSuresi { get; set; }
+        public static double degiskenUcretToplamCalismaSuresi { get; set; }
+
     }
 }

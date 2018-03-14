@@ -45,8 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DATA.cs" />
-    <Compile Include="Siniflar.cs" />
+    <Compile Include="Kodlar\DATA.cs" />
+    <Compile Include="Kodlar\Siniflar.cs" />
     <Compile Include="Form_Baslangic.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,14 +59,8 @@
     <Compile Include="Form_Chart.Designer.cs">
       <DependentUpon>Form_Chart.cs</DependentUpon>
     </Compile>
-    <Compile Include="Islemler.cs" />
-    <Compile Include="Kodlar.cs" />
-    <Compile Include="Nokta_Belirleyici.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Nokta_Belirleyici.Designer.cs">
-      <DependentUpon>Nokta_Belirleyici.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Kodlar\Islemler.cs" />
+    <Compile Include="Kodlar\DigerKodlar.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form_Baslangic.resx">
@@ -74,9 +68,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Chart.resx">
       <DependentUpon>Form_Chart.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Nokta_Belirleyici.resx">
-      <DependentUpon>Nokta_Belirleyici.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

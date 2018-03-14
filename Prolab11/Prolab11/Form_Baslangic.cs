@@ -66,6 +66,12 @@ namespace Prolab11
 
         public void Coz()
         {
+            DateTime sabitParaBaslama, sabirParaBitis, degisenParaBaslama, degisenParaBitis;
+
+
+
+            sabitParaBaslama = DateTime.Now;
+
             // sabit ücret işlemleri için DugumYapilari oluşturuluyor:
             // 5,6,7,...,49,50 adet yolcu için ayrı ayrı graf hazırlanıyor:
             DATA.dugumYapilari_sabit_ucret_max_kar = new DugumYapisi[46];
@@ -96,8 +102,13 @@ namespace Prolab11
 
             DATA.dugumYapilari_sabit_ucret_max_kar = DATA.dugumYapilari_sabit_ucret_max_kar.OrderByDescending(w => w.kar).ToArray();
 
+            // toplam çalışma süresini bulma
+            sabirParaBitis = DateTime.Now;
+            DATA.sabitUcretToplamCalismaSuresi = (sabirParaBitis - sabitParaBaslama).TotalMilliseconds;
             //_______________________________________________________________________
 
+
+            degisenParaBaslama = DateTime.Now;
 
             // max kar işlemleri için DugumYapilari oluşturuluyor:
             // 10,20,30,40,50 adet yolcu için ayrı ayrı graf hazırlanıyor:
@@ -127,6 +138,10 @@ namespace Prolab11
                 int olmasiGerekenKar = dugumYapisi.yolunZeplineMaliyeti * 3 / 2;
                 dugumYapisi.kisiBasiPara = olmasiGerekenKar / dugumYapisi.yolcuSayisi;
             }
+
+            // toplam çalışma süresini bulma
+            degisenParaBitis = DateTime.Now;
+            DATA.degiskenUcretToplamCalismaSuresi = (degisenParaBitis - degisenParaBaslama).TotalMilliseconds;
         }
 
         // form Baslagıç gizlendiğinden bu lazım oldu.

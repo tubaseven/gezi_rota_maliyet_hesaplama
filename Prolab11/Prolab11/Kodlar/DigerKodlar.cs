@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Prolab11
 {
-    class Kodlar
+    class DigerKodlar
     {
         public static int GetDistanceAsKM(double sLatitude, double sLongitude, double eLatitude, double eLongitude)
         {
