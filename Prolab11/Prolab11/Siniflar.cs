@@ -16,7 +16,7 @@ namespace Prolab11
         public int harita_X { get; set; }
         public int harita_Y { get; set; }
 
-        public int toplamMaliyet { get; set; }
+        public int toplamYolKm { get; set; }
 
         public List<Dugum> yollar { get; set; }
 
@@ -27,5 +27,19 @@ namespace Prolab11
     {
         public Dugum komsuDugum { get; set; }
         public int mesafe { get; set; }
+    }
+
+    public class DugumYapisi
+    {
+        public Dugum[] dugumler { get; set; }
+        public int yolcuSayisi { get; set; }
+        public int yolunZeplineMaliyeti { get; set; }
+        public double kar { get; set; }
+        public int kisiBasiPara { get; set; }
+
+        public DugumYapisi()
+        {
+            dugumler = new Dugum[81];
+        }
     }
 }

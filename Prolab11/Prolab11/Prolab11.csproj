@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DATA.cs" />
-    <Compile Include="Dugum.cs" />
+    <Compile Include="Siniflar.cs" />
     <Compile Include="Form_Baslangic.cs">
       <SubType>Form</SubType>
     </Compile>
